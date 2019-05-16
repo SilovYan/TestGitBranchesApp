@@ -8,6 +8,7 @@ namespace TestGitBranchesApp
         {
             Console.WriteLine("1. Сложение");
             Console.WriteLine("2. Вычитание");
+            Console.WriteLine("3. Умножение");
             Console.WriteLine("0. Выход");
         }
 
@@ -37,16 +38,25 @@ namespace TestGitBranchesApp
             return Calculator.Subtraction(a, b);
         }
 
+        public static int Multiplication()
+        {
+            var a = ReadInt("Первый множитель:");
+            var b = ReadInt("Второй множитель:");
+            return Calculator.Multiplication(a, b);
+        }
+
         private static Func<int> AskAndGetMethod()
         {
             PrintMenu();
-            var key = ReadInt("Выберите пункт:", 2);
+            var key = ReadInt("Выберите пункт:", 3);
             switch (key)
             {
                 case 1:
                     return Addition;
                 case 2:
                     return Subtraction;
+                case 3:
+                    return Multiplication;
                 default:
                     return null;
             }
