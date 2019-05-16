@@ -8,6 +8,7 @@ namespace TestGitBranchesApp
         {
             Console.WriteLine("1. Сложение");
             Console.WriteLine("2. Вычитание");
+            Console.WriteLine("3. Деление");
             Console.WriteLine("0. Выход");
         }
 
@@ -37,16 +38,25 @@ namespace TestGitBranchesApp
             return Calculator.Subtraction(a, b);
         }
 
+        public static int Division()
+        {
+            var a = ReadInt("Делимое:");
+            var b = ReadInt("Делитель:");
+            return Calculator.Division(a, b);
+        }
+        
         private static Func<int> AskAndGetMethod()
         {
             PrintMenu();
-            var key = ReadInt("Выберите пункт:", 2);
+            var key = ReadInt("Выберите пункт:", 3);
             switch (key)
             {
                 case 1:
                     return Addition;
                 case 2:
                     return Subtraction;
+                case 3:
+                    return Division;
                 default:
                     return null;
             }
